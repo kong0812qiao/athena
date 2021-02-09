@@ -61,6 +61,14 @@ public class AthenaConfig {
 
     private String aegisHttpUrl = "";
     private String amqpUri = "";
+    
+    //configs for apollo
+    private String apolloMeta = "";
+    private String apolloAppid = "";
+    private String apolloEnv = "";
+    private String apolloCluster = "";
+    private String apolloNameSpace = "";
+    
 
     public String getAllInOneFile() {
         return Paths.get(getInstance().getGlobalConfigPath(), "db-connections.cfg").toString();
@@ -155,7 +163,13 @@ public class AthenaConfig {
         httpAsyncClientMaxThread = config.getProperty("http_async_client_max_thread", "").trim();
         aegisHttpUrl = config.getProperty("aegis_http_url", "").trim();
         amqpUri = config.getProperty("amqp_uri", "").trim();
-
+        
+        apolloMeta = config.getProperty("apollo_meta");
+        apolloEnv = config.getProperty("apollo_env");
+        apolloCluster = config.getProperty("apollo_cluster");
+        apolloNameSpace = config.getProperty("apollo_namespace");
+        apolloAppid = config.getProperty("apollo_appid");
+        
         AgentConfiguration.initByConfigurationLoader(new ConfigurationLoader() {
             @Override public String getAppId() {
                 return Constants.APPID;
@@ -336,5 +350,25 @@ public class AthenaConfig {
 
     public String getAmqpUri() {
         return amqpUri;
+    }
+
+    public String getApolloMeta() {
+      return apolloMeta;
+    }
+  
+    public String getApolloAppid() {
+      return apolloAppid;
+    }
+  
+    public String getApolloEnv() {
+      return apolloEnv;
+    }
+  
+    public String getApolloCluster() {
+      return apolloCluster;
+    }
+  
+    public String getApolloNameSpace() {
+      return apolloNameSpace;
     }
 }

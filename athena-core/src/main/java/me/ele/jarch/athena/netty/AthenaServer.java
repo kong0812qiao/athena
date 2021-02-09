@@ -12,6 +12,7 @@ import me.ele.jarch.athena.scheduler.MulScheduler;
 import me.ele.jarch.athena.scheduler.MulSchedulerMonitor;
 import me.ele.jarch.athena.sharding.ShardingConfigFileReloader;
 import me.ele.jarch.athena.util.*;
+import me.ele.jarch.athena.util.apollo.Apollo;
 import me.ele.jarch.athena.util.config.GlobalIdConfig;
 import me.ele.jarch.athena.util.curator.CuratorMonitorJob;
 import me.ele.jarch.athena.util.deploy.OrgConfig;
@@ -86,6 +87,7 @@ public class AthenaServer {
             AthenaConfig.getInstance().getAsyncThreadCount());
         ShardingConfigFileReloader.loader
             .setShrdingConfigFile(AthenaConfig.getInstance().getShardingConfigPath());
+        Apollo.getInstance().init();
         logger.info("Startup job Scheduler ....");
         commonJobScheduler.start();
         quickJobScheduler.start();
@@ -103,8 +105,7 @@ public class AthenaServer {
 
         logger.info("Run PreLoad ....");
         //Run before start config file monitors and before bind the port
-        PreLoad.getInstance().load();
-
+        PreLoad.getInstance().loadByApollo();
         logger.info("Initialize config file monitors ....");
         initConfigMonitors();
 
@@ -139,7 +140,7 @@ public class AthenaServer {
                 DalGroupHealthCheck.getInstance()::check));
         initNettyMetrics();
         initMulSchedulerMetrics();
-        initCuratorMonitor();
+//        initCuratorMonitor();
         //add job to detect direct memory oom
         DirectOOMDetector.getInstance().addDetectJob();
     }

@@ -67,6 +67,7 @@
         <slf4j.version>1.7.28</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <jackson.version>2.9.0</jackson.version>
+        <apollo.version>1.1.0</apollo.version>
         <!-- plugin version -->
         <enforcer.plugin.version>3.0.0-M3</enforcer.plugin.version>
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
@@ -155,6 +156,16 @@
                 <version>${curator.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-core</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.re2j</groupId>
                 <artifactId>re2j</artifactId>
                 <version>${re2j.version}</version>
@@ -178,6 +189,7 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            
         </dependencies>
     </dependencyManagement>
 

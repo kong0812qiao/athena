@@ -30,7 +30,7 @@ public class Constants {
     public static final String ELEME_ORDER_DOUBLE_WRITE = "eleme_order_double_write";
     public static final String PID;
     public static final String MEDIATOR = "mediator";
-    public static final String DALGROUP_CFG_FOLDER = "/data/run/" + APPID + "/dalgroup_cache";
+    public static final String DALGROUP_CFG_FOLDER = "/Users/konglingqiao/data/run/" + APPID + "/dalgroup_cache";
 
     static {
         String pid = ManagementFactory.getRuntimeMXBean().getName();
@@ -262,4 +262,13 @@ public class Constants {
     public static final String IS_SPECIFY_DB = "is_specify_db";
 
     public static final String DANGER_SQL_FILTER_ENABLED = "danger_sql_filter_enabled";
+    
+    //key prefix in apollo
+    public static final String APOLLO_ORGS_KEY = "_orgs";
+    public static final String APOLLO_ORG_DEPLOY_PREFIX  = "_org_deploy.";
+    public static final String APOLLO_ORG_DALGROUP_MAPPING_KEY_PREFIX = "_org_dalgroup.";
+    public static final String APOLLO_DALGROUP_META_PREFIX = "_dalgroup_meta.";
+    public static final String APOLLO_DALGROUP_CFG_PREFIX = "_dalgroup_cfg.";
+    public static final String APOLLO_GLOBAL_META_KEY = "_global.metas";
+   
 }

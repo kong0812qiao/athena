@@ -43,7 +43,7 @@ public class GreySwitch {
 
     private volatile boolean isDalGroupCfgEnabled = true;
 
-    private volatile boolean oldConfigFileDisabled = false;
+    private volatile boolean oldConfigFileDisabled = true;
 
     private volatile boolean zkDalgroupWatcherEnabled = true;
 

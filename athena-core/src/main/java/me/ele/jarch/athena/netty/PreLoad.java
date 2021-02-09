@@ -6,6 +6,7 @@ import me.ele.jarch.athena.constant.Metrics;
 import me.ele.jarch.athena.constant.TraceNames;
 import me.ele.jarch.athena.sharding.ShardingConfigFileReloader;
 import me.ele.jarch.athena.util.*;
+import me.ele.jarch.athena.util.apollo.Apollo;
 import me.ele.jarch.athena.util.config.GlobalIdConfig;
 import me.ele.jarch.athena.util.curator.ZkCurator;
 import me.ele.jarch.athena.util.deploy.OrgConfig;
@@ -33,7 +34,17 @@ public class PreLoad {
     private PreLoad() {
 
     }
-
+    
+    public boolean loadByApollo() {
+        logger.info("Preload dal-grey-switch.cfg ....");
+        GreySwitchCfg.tryLoadCfg(AthenaConfig.getInstance().getGreySwitchConfigPath());
+        //需要在灰度开关加载完之后加载dalgroup配置
+        logger.info("Preload dalgroup configs ...");
+        Apollo.getInstance().loadConfig();
+        DalGroupCfgFileLoader.LOADER.initDalGroupCfgs();
+        return true;
+    }
+    
     public boolean load() throws InterruptedException, IOException {
         logger.info("Preload zk caches ....");
         CountDownLatch zkInitLatch = new CountDownLatch(1);

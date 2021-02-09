@@ -18,6 +18,7 @@ import me.ele.jarch.athena.util.AthenaConfig;
 import me.ele.jarch.athena.util.NoThrow;
 import me.ele.jarch.athena.util.WeakMasterFilter;
 import me.ele.jarch.athena.util.ZKCache;
+import me.ele.jarch.athena.util.apollo.Apollo;
 import me.ele.jarch.athena.util.curator.ZkCuratorUtil;
 import me.ele.jarch.athena.util.deploy.DALGroup;
 import me.ele.jarch.athena.util.deploy.OrgConfig;
@@ -208,6 +209,7 @@ public class DBChannelDispatcher {
     private static void initDalGroupCfgDispatcher(DalGroupConfig dalGroupConfig) {
         ZKCache zkCache = new ZKCache(dalGroupConfig.getName());
         zkCache.init(AthenaConfig.getInstance().getConfig());
+        updateMetaFromApollo(zkCache);
         DALGroup dalGroup =
             new DALGroup(dalGroupConfig.getName(), "", dalGroupConfig.getHomeDbGroupName());
         dalGroup.setBatchAllowed(dalGroupConfig.getBatchAllowed());
@@ -218,6 +220,11 @@ public class DBChannelDispatcher {
         holders.put(dalGroupConfig.getName(), dbChannelDispatcher);
         dbChannelDispatcher.refreshDalGroupCfg();
         ZkCuratorUtil.initZKCache(dbChannelDispatcher);
+    }
+    
+    private static void updateMetaFromApollo(ZKCache zkCache) {
+        Map<String, String> metas = Apollo.getInstance().getDalgroupMeta(zkCache.getGroupName());
+        metas.forEach(zkCache::setZkCfg);
     }
 
     private void updateDalGroupCfg(DalGroupConfig dalGroupConfig) {

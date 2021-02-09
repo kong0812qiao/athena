@@ -4,9 +4,9 @@
 
     <appender name="FILE"
               class="me.ele.jarch.athena.util.AthenaFileAppender">
-        <file>/data/log/me.ele.arch.das.misc/athena.log</file>
+        <file>/Users/konglingqiao/data/log/me.ele.arch.das.misc/athena.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>/data/log/me.ele.arch.das.misc/athena.log.%i</fileNamePattern>
+            <fileNamePattern>/Users/konglingqiao/data/log/me.ele.arch.das.misc/athena.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>18</maxIndex>
         </rollingPolicy>
@@ -27,9 +27,9 @@
     <!-- save error to another log-->
     <appender name="ERROR_FILE"
               class="me.ele.jarch.athena.util.AthenaFileAppender">
-        <file>/data/log/me.ele.arch.das.misc/error.log</file>
+        <file>/Users/konglingqiao/data/log/me.ele.arch.das.misc/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>/data/log/me.ele.arch.das.misc/error.log.%i</fileNamePattern>
+            <fileNamePattern>/Users/konglingqiao/data/log/me.ele.arch.das.misc/error.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>5</maxIndex>
         </rollingPolicy>
@@ -52,9 +52,9 @@
     </appender>
     <appender name="UNSAFE_FILE"
               class="me.ele.jarch.athena.util.AthenaFileAppender">
-        <file>/data/log/me.ele.arch.das.misc/unsafe.log</file>
+        <file>/Users/konglingqiao/data/log/me.ele.arch.das.misc/unsafe.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>/data/log/me.ele.arch.das.misc/unsafe.log.%i</fileNamePattern>
+            <fileNamePattern>/Users/konglingqiao/data/log/me.ele.arch.das.misc/unsafe.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>5</maxIndex>
         </rollingPolicy>
@@ -74,9 +74,9 @@
     <!-- config init change or error -->
     <appender name="CONFIG_FILE"
               class="me.ele.jarch.athena.util.AthenaFileAppender">
-        <file>/data/log/me.ele.arch.das.misc/config.log</file>
+        <file>/Users/konglingqiao/data/log/me.ele.arch.das.misc/config.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>/data/log/me.ele.arch.das.misc/config.log.%i</fileNamePattern>
+            <fileNamePattern>/Users/konglingqiao/data/log/me.ele.arch.das.misc/config.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>5</maxIndex>
         </rollingPolicy>
@@ -94,9 +94,9 @@
     <!-- danger sql log -->
     <appender name="DANGER_FILE"
               class="me.ele.jarch.athena.util.AthenaFileAppender">
-        <file>/data/log/me.ele.arch.das.misc/danger.log</file>
+        <file>/Users/konglingqiao/data/log/me.ele.arch.das.misc/danger.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>/data/log/me.ele.arch.das.misc/danger.log.%i</fileNamePattern>
+            <fileNamePattern>/Users/konglingqiao/data/log/me.ele.arch.das.misc/danger.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>3</maxIndex>
         </rollingPolicy>
